@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="clientpreferenceelement">
+  <!-- client 회원가입을 처리할 SQL -->
+  	<insert id = "join" parameterType = "gmail.elwl5515.portfolio.domain.ClientPreferenceElement">
+  		insert into clientPreferenceElement(clientNickname, preferWifi, preferRefill, preferConcent,
+  		 preferParking, preferPat, preferNoKidsZone)
+		values(#{clientNickname}, #{preferWifi}, #{preferRefill}, #{preferConcent}, #{preferParking}, #{preferPat},
+		#{preferNoKidsZone})
+  	</insert>
+  	
+  	<!-- client 회원 정보 갱신을 처리할 SQL -->
+  	<update id = "update" parameterType = "gmail.elwl5515.portfolio.domain.ClientPreferenceElement">
+  		update clientPreferenceElement
+  		set preferWifi=#{preferWifi}, preferRefill=#{preferRefill}, preferConcent=#{preferConcent}, preferParking=#{preferParking}, preferPat=#{preferPat},
+  		preferNoKidsZone=#{preferNoKidsZone}
+  		where trim(clientNickname)=#{clientNickname}
+  	</update>
+  </mapper>

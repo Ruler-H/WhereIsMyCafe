@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="client">
+  	<!-- 닉네임 중복 체크를 위한 SQL - 닉네임에 해당하는 데이터 찾아오기 -->
+  	<select id="nicknamecheck" parameterType="java.lang.String" resultType="java.lang.String">
+  		select clientNickname
+  		from client
+  		where trim(clientNickname) = #{clientNickname}
+  	</select>
+  	
+  	<!-- client 회원가입을 처리할 SQL -->
+  	<insert id = "join" parameterType = "gmail.elwl5515.portfolio.domain.Client">
+  		insert into client(clientNickname, clientEmail, clientName, clientPassword, clientProfileImage, clientAge, 
+  		clientAddress, clientPhoneNum)
+		values(#{clientNickname}, #{clientEmail}, #{clientName}, #{clientPassword}, #{clientProfileImage}, #{clientAge},
+		#{clientAddress}, #{clientPhoneNum})
+  	</insert>
+  	
+  	<!-- client 로그인을 처리할 SQL -->
+  	<select id = "login" resultType = "gmail.elwl5515.portfolio.domain.Client">
+  		select clientEmail, clientPassword, clientNickname, clientProfileImage, clientAge, clientName
+  		from client
+  	</select>
+  	
+  	<!-- client 회원정보 갱신을 위한 SQL -->
+  	<update id = "update" parameterType = "gmail.elwl5515.portfolio.domain.Client">
+  		update client
+  		set clientPassword=#{clientPassword}, clientProfileImage=#{clientProfileImage}, clientAddress=#{clientAddress}, clientPhoneNum=#{clientPhoneNum}
+  		where trim(clientNickname)=#{clientNickname}
+  	</update>
+  </mapper>
