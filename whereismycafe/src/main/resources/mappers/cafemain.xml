@@ -3,4 +3,18 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <mapper namespace="cafemain">
+    <!-- 닉네임 중복 체크를 위한 SQL - 닉네임에 해당하는 데이터 찾아오기 -->
+  	<select id="nicknamecheck" parameterType="java.lang.String" resultType="java.lang.String">
+  		select cafeNickname
+  		from cafeMain
+  		where trim(cafeNickname) = #{cafeNickname}
+  	</select>
+  	
+  	<!-- cafeMain 회원가입을 처리할 SQL -->
+  	<insert id = "join" parameterType = "gmail.elwl5515.portfolio.domain.CafeMain">
+		insert into cafeMain(cafeNickname, cafeName, cafeAddress, cafeWifi, cafeParking, cafeRefill, cafeTableNum, 
+		concentTableNum, cafeLogo, cafePhoneNum, cafeCommentary, cafePassword)
+		values(#{cafeNickname}, #{cafeName}, #{cafeAddress}, #{cafeWifi}, #{cafeParking}, #{cafeRefill}, #{cafeTableNum},
+		#{concentTableNum}, #{cafeLogo}, #{cafePhoneNum}, #{cafeCommentary}, #{cafePassword})
+  	</insert>
   </mapper>

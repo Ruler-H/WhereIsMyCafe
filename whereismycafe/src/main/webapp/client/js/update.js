@@ -96,7 +96,7 @@ window.addEventListener("load", function(event){
         request.addEventListener("load", function(e){
             var obj = JSON.parse(e.target.responseText);
             if(obj.result == true){
-                location.href = "../";
+                location.href = "../client/logout";
             }else{
                 msg.innerHTML = "회원 정보 수정에 실패하였습니다."
             }

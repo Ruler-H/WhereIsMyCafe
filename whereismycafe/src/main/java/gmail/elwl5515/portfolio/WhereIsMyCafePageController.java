@@ -34,4 +34,16 @@ public class WhereIsMyCafePageController {
 	public String update() {
 		return "client/update";
 	}
+	
+	//cafe의 join 페이지 이동을 위한 메소드
+	@RequestMapping(value = "cafe/join", method = RequestMethod.GET)
+	public String cafeJoin() {
+		return "cafe/join";
+	}
+	
+	//cafe의 login 페이지 이동을 위한 메소드
+	@RequestMapping(value = "cafe/login", method = RequestMethod.GET)
+	public String cafeLogin() {
+		return "cafe/login";
+	}
 }

@@ -12,10 +12,10 @@ public class CafeMain {
 	private String cafeWifi;		//와이파이 보유 여부
 	private String cafeParking;		//주차 가능 여부
 	private String cafeRefill;		//리필 가능 여부
-	private String cafeTableNum;	//전체 테이블 수
+	private int cafeTableNum;	//전체 테이블 수
 	private int concentTableNum;	//콘센트 사용 가능 테이블 수
 	private String cafeLogo;		//카페 로고
 	private String cafePhoneNum;	//카페 전화번호
-	private String cafeImage;		//카페 사진
 	private String cafeCommentary;	//카페 한줄 설명
+	private String cafePassword;	//카페 비밀번호
 }

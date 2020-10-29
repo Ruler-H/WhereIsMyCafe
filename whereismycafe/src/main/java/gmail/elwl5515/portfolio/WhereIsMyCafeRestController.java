@@ -53,7 +53,7 @@ public class WhereIsMyCafeRestController {
 	
 	//회원가입을 처리하는 메소드
 	@RequestMapping(value = "client/join", method = RequestMethod.POST)
-	public Map<String, Object> join(MultipartHttpServletRequest request, HttpServletResponse response){
+	public Map<String, Object> clientJoin(MultipartHttpServletRequest request, HttpServletResponse response){
 		//서비스의 회원가입 메소드 호출
 		System.out.println("RestController join 메소드 호출 확인");
 		Map<String, Object> map = clientService.join(request, response);
@@ -62,19 +62,28 @@ public class WhereIsMyCafeRestController {
 	
 	//로그인을 처리하는 메소드
 	@RequestMapping(value = "client/login", method = RequestMethod.POST)
-	public Map<String, Object> login(HttpServletRequest request, HttpServletResponse response){
+	public Map<String, Object> clientLogin(HttpServletRequest request, HttpServletResponse response){
 		//서비스의 로그인 메소드 호출
 		Map<String, Object> result = clientService.login(request, response);
-		System.out.println(result);		
+		System.out.println(result);
 		return result;
 	}
 	
 	//회원 정보 갱신을 처리하는 메소드
 	@RequestMapping(value = "client/update", method = RequestMethod.POST)
-	public Map<String, Object> update(MultipartHttpServletRequest request, HttpServletResponse response){
+	public Map<String, Object> clientUpdate(MultipartHttpServletRequest request, HttpServletResponse response){
 		//서비스의 회원 정보 갱신 메소드 호출
 		Map<String, Object> result = clientService.update(request, response);
 		return result;
+	}
+	
+	//카페 회원가입을 처리하는 메소드
+	@RequestMapping(value = "cafe/join", method = RequestMethod.POST)
+	public Map<String, Object> cafeJoin(MultipartHttpServletRequest request, HttpServletResponse response){
+		//카페 서비스의 회원가입 메소드 호출
+		System.out.println("RestController cafe join 메소드 호출 확인");
+		Map<String, Object> map = cafeMainService.join(request, response);
+		return map;
 	}
 
 }

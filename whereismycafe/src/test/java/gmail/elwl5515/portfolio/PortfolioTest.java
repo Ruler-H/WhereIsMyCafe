@@ -10,6 +10,9 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
+import gmail.elwl5515.portfolio.domain.CafeImage;
+import gmail.elwl5515.portfolio.domain.CafeMain;
+import gmail.elwl5515.portfolio.domain.CafeSub;
 import gmail.elwl5515.portfolio.domain.Client;
 import gmail.elwl5515.portfolio.domain.ClientPreferenceElement;
 
@@ -55,9 +58,9 @@ public class PortfolioTest {
 		//회원가입 확인을 위한 데이터 삽입 확인
 		Client client = new Client();
 		client.setClientAddress("일산");
-		//client.setClientAge(20);
-		//client.setClientEmail("gjs5515@naver.com");
-		//client.setClientName("황병헌");
+		client.setClientAge(20);
+		client.setClientEmail("gjs5515@naver.com");
+		client.setClientName("황병헌");
 		client.setClientNickname("흠븜흠");
 		client.setClientPassword("qwerqwerqwe");
 		client.setClientPhoneNum("031-964-6216");
@@ -78,7 +81,50 @@ public class PortfolioTest {
 		//System.out.println(sqlSession.insert("clientpreferenceelement.join", clientPreferenceElement));
 		
 		//System.out.println(sqlSession.update("client.update", client));
-		System.out.println(sqlSession.update("clientpreferenceelement.update", clientPreferenceElement));
+		//System.out.println(sqlSession.update("clientpreferenceelement.update", clientPreferenceElement));
+		
+		
+		//카페 닉네임 중복검사 - 존재하는 닉네임으로 확인
+		nickname = sqlSession.selectOne("cafemain.nicknamecheck", "huge cafe");
+		System.out.println(nickname);
+		
+		//카페 닉네임 중복검사 - 존재하지 않는 닉네임으로 확인
+		nickname = sqlSession.selectOne("cafemain.nicknamecheck", "hu cafe");
+		System.out.println(nickname);
+		
+		CafeMain cafeMain = new CafeMain();
+		cafeMain.setCafeAddress("경기");
+		cafeMain.setCafeCommentary("좋아요");
+		cafeMain.setCafeLogo("이쁜 로고");
+		cafeMain.setCafeName("GRATIA");
+		cafeMain.setCafeNickname("GRATIA");
+		cafeMain.setCafeParking("0");
+		cafeMain.setCafePassword("qudgjs01");
+		cafeMain.setCafePhoneNum("031-963-6631");
+		cafeMain.setCafeRefill("1");
+		cafeMain.setCafeTableNum(20);
+		cafeMain.setCafeWifi("1");
+		cafeMain.setConcentTableNum(6);
+		
+		//System.out.println(sqlSession.insert("cafemain.join", cafeMain));
+		
+		CafeSub cafeSub = new CafeSub();
+		cafeSub.setCafeCoupon("1");
+		cafeSub.setCafeHomepage("www.gratia.com");
+		cafeSub.setCafeNickname("GRATIA");
+		cafeSub.setCafeSNS("instagram");
+		cafeSub.setNoKidsZone("0");
+		cafeSub.setOutdoorTableNum(0);
+		cafeSub.setSirenOrder("0");
+		cafeSub.setTumblerDiscount("0");
+		
+		//System.out.println(sqlSession.insert("cafesub.join", cafeSub));
+		
+		CafeImage cafeImage = new CafeImage();
+		cafeImage.setCafeImage("이쁜 사진");
+		cafeImage.setCafeNickname("huge cafe");
+		
+		System.out.println(sqlSession.insert("cafeimage.join", cafeImage));
 		
 		
 	}

@@ -39,7 +39,7 @@ public class ClientServiceImpl implements ClientService {
 		Map<String, Object> map = new HashMap<String, Object>();
 		// 성공과 실패 여부를 확인할 데이터
 		map.put("result", false);
-		// 실패했을 때 실패 이유를 저장하기 위한 데이터
+		// 실패했을 때 닉네임 때문에 실패한지 여부를 저장하기 위한 데이터
 		map.put("nicknamecheck", false);
 		// 파라미터 읽기
 		String clientAddress = request.getParameter("clientAddress");
@@ -96,11 +96,6 @@ public class ClientServiceImpl implements ClientService {
 		if (nicknameCheckResult == null) {
 			System.out.println("ClientServiceImpl join 메소드 호출 확인 : 3");
 			map.put("nicknamecheck", true);
-		}
-
-		// nickname 중복 검사를 통과한 경우에만 데이터 삽입
-		if (nicknameCheckResult == null) {
-			System.out.println("ClientServiceImpl join 메소드 호출 확인 : 4");
 			// 프로필 파일의 기본 이름 설정
 			String image = "default.jpg";
 			// 파일을 선택한 경우에만 파일을 서버에 복사
@@ -117,7 +112,7 @@ public class ClientServiceImpl implements ClientService {
 				try {
 					fos = new FileOutputStream(file);
 				}catch(Exception e) {
-					System.err.println("FileNotFoundException : " + e.getMessage());
+					System.err.println("파일 객체 생성 실패 : " + e.getMessage());
 					e.printStackTrace();
 				}
 				try {
@@ -270,19 +265,19 @@ public class ClientServiceImpl implements ClientService {
 			System.out.println("ClientServiceImpl의 update 메소드 확인 : 2");
 			//업로드한 파일 이름 랜덤하게 설정
 			image = UUID.randomUUID() + clientProfileImage.getOriginalFilename();
-		}
-		//저장할 때 사용할 전체 경로 생성
-		uploadPath = uploadPath + "/" + image;
-		//파일 객체 생성
-		File file = new File(uploadPath);
-		FileOutputStream fos = null;
-		//파일 전송 요청
-		try {
-			fos = new FileOutputStream(file);
-			fos.write(clientProfileImage.getBytes());
-		}catch(Exception e) {
-			System.err.println("프로필 이미지 전송 실패 : " + e.getMessage());
-			e.printStackTrace();
+			//저장할 때 사용할 전체 경로 생성
+			uploadPath = uploadPath + "/" + image;
+			//파일 객체 생성
+			File file = new File(uploadPath);
+			FileOutputStream fos = null;
+			//파일 전송 요청
+			try {
+				fos = new FileOutputStream(file);
+				fos.write(clientProfileImage.getBytes());
+			}catch(Exception e) {
+				System.err.println("프로필 이미지 전송 실패 : " + e.getMessage());
+				e.printStackTrace();
+			}
 		}
 			//파라미터로 받은 데이터를 저장할 client, clientPreferenceElement DTO 객체 생성
 			Client client = new Client();

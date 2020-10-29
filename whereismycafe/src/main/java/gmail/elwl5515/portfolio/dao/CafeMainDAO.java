@@ -4,8 +4,22 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import gmail.elwl5515.portfolio.domain.CafeMain;
+
 @Repository
 public class CafeMainDAO {
 	@Autowired
 	private SqlSession sqlSession;
+	
+	//닉네임 중복 체크를 위한 메소드
+	public String cafeNicknameCheck(String cafeNickname) {
+		System.out.println("CafeMainDAO 닉네임체크 메소드 호출 확인");
+		return sqlSession.selectOne("cafemain.nicknamecheck", cafeNickname);
+	}
+		
+	//회원가입 처리를 위한 메소드
+	public int join(CafeMain cafeMain) {
+		System.out.println("CafeMainDAO join 메소드 호출 확인");
+		return sqlSession.insert("cafemain.join", cafeMain);
+	}
 }
