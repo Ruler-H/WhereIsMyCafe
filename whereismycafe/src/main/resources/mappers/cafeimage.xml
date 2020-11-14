@@ -8,4 +8,10 @@
 		insert into cafeImage(cafeImageNum, cafeNickname, cafeImage)
 		values(cafeImageNum.NEXTVAL, #{cafeNickname}, #{cafeImage})
   	</insert>
+  	
+  	<!-- cafeImage 로그인을 처리할 SQL -->
+  	<select id = "login" resultType = "gmail.elwl5515.portfolio.domain.CafeImage">
+  		insert *
+  		from cafeImage
+  	</select>
   </mapper>

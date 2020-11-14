@@ -17,4 +17,10 @@
 		values(#{cafeNickname}, #{cafeName}, #{cafeAddress}, #{cafeWifi}, #{cafeParking}, #{cafeRefill}, #{cafeTableNum},
 		#{concentTableNum}, #{cafeLogo}, #{cafePhoneNum}, #{cafeCommentary}, #{cafePassword})
   	</insert>
+  	
+  	<!-- cafeMain 로그인을 처리할 SQL -->
+  	<select id = "login" resultType = "gmail.elwl5515.portfolio.domain.CafeMain">
+  		select *
+  		from cafeMain
+  	</select>
   </mapper>

@@ -22,11 +22,30 @@
 						<div class = "inp_text">
 							<label for = "cafeNickname" class = "screen_out">카페 닉네임</label>
 							<input type = "text" id = "cafeNickname" name = "cafeNickname" placeholder = "카페 닉네임을 입력하세요!">
-							
+						</div>
+						<div class = "inp_text">
+							<label for = "cafePassword" class = "screen_out">비밀번호</label>
+							<input type = password" id = "cafePassword" name = "cafePassword" placeholder = "비밀번호를 입력하세요!">
 						</div>
 					</div>
 				</fieldset>
 			</form>
+			<button class = "btn_login" id = "loginbtn">로그인</button>
+			<div class = "login_append">
+				<div class = "inp_chk">
+					<input type = "checkbox" id = "keepLogin" class = "inp_radio" name = "keepLogin">
+					<label for = "keepLogin" class = "lab_g">
+						<span class = "img_topico_check"></span>&emsp;&emsp;
+						<span class = "text_lab">로그인 상태 유지</span>
+					</label>
+				</div>
+			</div>
+			<div class = "login_append" align = "center">
+				<a href = "#" class = "link_find">아이디 찾기</a>
+				<a href = "#" class = "link_find">비밀번호 찾기</a>
+				<a href = "join" class = "link_find">회원가입</a>
+				<a href = "../index.html" class = "link_find">메인으로</a>
+			</div>
 		</div>
 	</div>
 </body>

@@ -10,4 +10,10 @@
 		values(#{cafeNickname}, #{tumblerDiscount}, #{noKidsZone}, #{cafeHomepage}, #{sirenOrder},
 		#{cafeCoupon}, #{outdoorTableNum}, #{cafeSNS})
   	</insert>
+  	
+  	<!-- cafeSub 로그인을 처리할 SQL -->
+  	<select id = "login" resultType = "gmail.elwl5515.portfolio.domain.CafeSub">
+  		select *
+  		from cafeSub
+  	</select>
   </mapper>

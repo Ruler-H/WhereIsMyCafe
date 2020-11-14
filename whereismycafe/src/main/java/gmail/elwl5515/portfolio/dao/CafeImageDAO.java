@@ -1,5 +1,7 @@
 package gmail.elwl5515.portfolio.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -17,4 +19,8 @@ public class CafeImageDAO {
 		return sqlSession.insert("cafeimage.join", cafeImage);
 	}
 
+	//로그인 처리를 위한 메소드
+	public List<CafeImage> login(){
+		return sqlSession.selectList("cafeimage.login");
+	}
 }

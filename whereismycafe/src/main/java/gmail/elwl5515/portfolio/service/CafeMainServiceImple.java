@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.mindrot.jbcrypt.BCrypt;
@@ -236,5 +237,32 @@ public class CafeMainServiceImple implements CafeMainService {
 			}
 		}
 		return map;
+	}
+
+	// cafe 로그인 처리를 위한 메소드
+	@Override
+	public Map<String, Object> login(HttpServletRequest request, HttpServletResponse response) {
+		Map<String, Object> result = new HashMap<String, Object>();
+		result.put("reuslt", false);
+		String cafeNickname = request.getParameter("cafeNickname");
+		String cafePassword = request.getParameter("cafePassword");
+		
+		List<CafeMain> cafeMainList = cafeMainDao.login();
+		List<CafeSub> cafeSubList = cafeSubDao.login();
+		List<CafeImage> cafeImageList = cafeImageDao.login();
+		
+		String key = "elwl5515";
+		try {
+			for(CafeMain cafeMain : cafeMainList) {
+				if(CryptoUtil.decryptAES256(cafeMain.getCafeNickname().trim(), key).equals(cafeNickname) &&
+				BCrypt.checkpw(cafePassword, cafeMain.getCafePassword())){
+					result.put("result", true);
+					result.put("cafeNickname", cafeNickname);
+				}
+			}
+		}catch(Exception e) {
+			System.err.println("로그인 처리 실패 : " + e.getMessage());
+			e.printStackTrace();
+		}
 	}
 }

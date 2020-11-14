@@ -1,5 +1,7 @@
 package gmail.elwl5515.portfolio.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -21,5 +23,10 @@ public class CafeMainDAO {
 	public int join(CafeMain cafeMain) {
 		System.out.println("CafeMainDAO join 메소드 호출 확인");
 		return sqlSession.insert("cafemain.join", cafeMain);
+	}
+	
+	//로그인 처리를 위한 메소드
+	public List<CafeMain> login(){
+		return sqlSession.selectList("cafemain.login");
 	}
 }
