@@ -12,6 +12,8 @@
 	<c:if test = "${clientinfo == null}">
 		<a href = "client/join">고객 회원가입</a></br>
 		<a href = "client/login">고객 로그인</a></br>
+		<a href = "cafe/join">카페 회원가입</a></br>
+		<a href = "cafe/login">카페 로그인</a>
 	</c:if>
 	<c:if test = "${clientinfo != null}">
 		<img src = "${pageContext.request.contextPath}/client/profile/
@@ -19,7 +21,5 @@
 		<a href = "client/logout" class = "menu">로그아웃</a>
 		<a href = "client/update" class = "menu">회원 정보 수정</a>
 	</c:if>
-	<a href = "cafe/join">카페 회원가입</a></br>
-	<a href = "cafe/login">카페 로그인</a>
 </body>
 </html>
