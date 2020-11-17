@@ -13,26 +13,26 @@ public class ClientDAO {
 	@Autowired
 	private SqlSession sqlSession;
 	
-	//닉네임 중복 체크를 위한 메소드
+	//�땳�꽕�엫 以묐났 泥댄겕瑜� �쐞�븳 硫붿냼�뱶
 	public String clientNicknameCheck(String clientNickname) {
-		System.out.println("ClientDAO clientNicknameCheck 메소드 호출 확인");
+		System.out.println("ClientDAO clientNicknameCheck 硫붿냼�뱶 �샇異� �솗�씤");
 		return sqlSession.selectOne("client.nicknamecheck", clientNickname);
 	}
 	
-	//회원가입 처리를 위한 메소드
+	//�쉶�썝媛��엯 泥섎━瑜� �쐞�븳 硫붿냼�뱶
 	public int join(Client client) {
-		System.out.println("ClientDAO join 메소드 호출 확인");
+		System.out.println("ClientDAO join 硫붿냼�뱶 �샇異� �솗�씤");
 		return sqlSession.insert("client.join", client);
 	}
 	
-	//로그인 처리를 위한 메소드
+	//濡쒓렇�씤 泥섎━瑜� �쐞�븳 硫붿냼�뱶
 	public List<Client> login(){
 		return sqlSession.selectList("client.login");
 	}
 	
-	//회원 정보 갱신을 처리를 위한 메소드
+	//�쉶�썝 �젙蹂� 媛깆떊�쓣 泥섎━瑜� �쐞�븳 硫붿냼�뱶
 	public int update(Client client) {
-		System.out.println("ClientDAO update 메소드 호출 확인");
+		System.out.println("ClientDAO update 硫붿냼�뱶 �샇異� �솗�씤");
 		return sqlSession.update("client.update", client);
 	}
 	

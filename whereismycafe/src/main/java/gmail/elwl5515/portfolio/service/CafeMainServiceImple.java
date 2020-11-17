@@ -258,11 +258,43 @@ public class CafeMainServiceImple implements CafeMainService {
 				BCrypt.checkpw(cafePassword, cafeMain.getCafePassword())){
 					result.put("result", true);
 					result.put("cafeNickname", cafeNickname);
+					result.put("cafePassword", cafePassword);
+					result.put("cafeName", cafeMain.getCafeName());
+					result.put("cafeAddress", cafeMain.getCafeAddress());
+					result.put("signatureDrink", cafeMain.getSignatureDrink());
+					result.put("signatureDesert", cafeMain.getSignatureDesert());
+					result.put("cafeWifi", cafeMain.getCafeWifi());
+					result.put("cafeTableNum", cafeMain.getCafeTableNum());
+					result.put("concentTableNum", cafeMain.getConcentTableNum());
+					result.put("cafeLogo", cafeMain.getCafeLogo());
+					result.put("cafePhoneNum", cafeMain.getCafePhoneNum());
+					result.put("cafeCommentary", cafeMain.getCafeCommentary());
+				}
+			}
+			for(CafeSub cafeSub : cafeSubList) {
+				if((boolean)result.get("result")) {
+					result.put("tumblerDiscount", cafeSub.getTumblerDiscount());
+					result.put("noKidsZone", cafeSub.getNoKidsZone());
+					result.put("cafeHomepage", cafeSub.getCafeHomepage());
+					result.put("sirenOrder", cafeSub.getSirenOrder());
+					result.put("cafeCoupon", cafeSub.getCafeCoupon());
+					result.put("outdoorTableNum", cafeSub.getOutdoorTableNum());
+					result.put("cafeSNS", cafeSub.getCafeSNS());
+					result.put("toiletGrade", cafeSub.getToiletGrade());
+				}
+			}
+			for(CafeImage cafeImage : cafeImageList) {
+				if((boolean)result.get("result")) {
+					result.put("cafeImageNum", cafeImage.getCafeImageNum());
+					result.put("cafeImage", cafeImage.getCafeImage());
 				}
 			}
 		}catch(Exception e) {
 			System.err.println("로그인 처리 실패 : " + e.getMessage());
 			e.printStackTrace();
 		}
+		System.out.println(result);
+		request.getSession().setAttribute("cafeinfo", result);
+		return result;
 	}
 }
