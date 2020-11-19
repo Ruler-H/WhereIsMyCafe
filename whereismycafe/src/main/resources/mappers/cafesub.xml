@@ -16,4 +16,12 @@
   		select *
   		from cafeSub
   	</select>
+  	
+  	<!-- cafeSub 정보 수정을 처리할 SQL -->
+  	<update id = "update" parameterType = "gmail.elwl5515.portfolio.domain.CafeSub">
+  		update cafeSub
+  		set tumblerDiscount=#{tumblerDiscount}, noKidsZone=#{noKidsZone}, cafeHomepage=#{cafeHomepage}, sirenOrder=#{sirenOrder},
+  		cafeCoupon=#{cafeCoupon}, outdoorTableNum=#{outdoorTableNum}, cafeSNS=#{cafeSNS}
+  		where trim(cafeNickname)=#{cafeNickname}
+  	</update>
   </mapper>

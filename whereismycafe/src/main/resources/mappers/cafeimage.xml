@@ -14,4 +14,11 @@
   		insert *
   		from cafeImage
   	</select>
+  	
+  	<!-- cafeImage 정보 수정을 처리할 SQL -->
+  	<update id = "update" parameterType = "gmail.elwl5515.portfolio.domain.CafeImage">
+  		update cafeImage
+  		set cafeImageNum=#{cafeImageNum.NEXTVAL}, cafeImage=#{cafeImage}
+  		where trim(cafeNickname)=#{cafeNickname}
+  	</update>
   </mapper>

@@ -21,5 +21,10 @@
 		<a href = "client/logout" class = "menu">로그아웃</a>
 		<a href = "client/update" class = "menu">회원 정보 수정</a>
 	</c:if>
+	<c:if test = "${cafeinfo != null}">
+		<img src = "${pageContext.request.contextPath}/cafe/profile/${cafeinfo.cefeLogo}"/>${cafeinfo.cafeName} 점주님
+		<a href = "cafe/logout" class = "menu">로그아웃</a>
+		<a href = "cafe/update" class = "menu">카페 정보 수정</a>
+	</c:if>
 </body>
 </html>

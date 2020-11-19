@@ -40,7 +40,7 @@
 				<input type="password" id="cafePassword1" class="textinput" placeholder="영문 대소문자와 특수문자와 숫자 1개 이상으로 만들어야 합니다"/>
 			</li>
 			<li>
-				<label for="cafePhoneNum">카페 전화 번호</label>
+				<label for="cafePhoneNum">카페 전화번호</label>
 				<input type="tel" id="cafePhoneNum" name="cafePhoneNum" class="textinput" placeholder="번호를 입력하세요"/>
 			</li>
 			<div id="cafePhoneNummsg"></div>

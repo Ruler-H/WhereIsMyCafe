@@ -46,4 +46,17 @@ public class WhereIsMyCafePageController {
 	public String cafeLogin() {
 		return "cafe/login";
 	}
+	
+	//cafe의 logout 페이지 이동을 위한 메소드
+	@RequestMapping(value = "cafe/logout", method = RequestMethod.GET)
+	public String cafeLogout(HttpSession session) {
+		session.invalidate();
+		return "redirect:../";
+	}
+	
+	//cafe의 회원정보 수정 페이지 이동을 위한 메소드
+	@RequestMapping(value = "cafe/update", method = RequestMethod.GET)
+	public String cafeUpdate() {
+		return "cafe/update";
+	}
 }

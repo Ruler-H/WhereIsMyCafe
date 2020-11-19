@@ -23,4 +23,13 @@
   		select *
   		from cafeMain
   	</select>
+  	
+  	<!-- cafe 정보 갱신을 위한 SQL -->
+  	<update id = "update" parameterType = "gmail.elwl5515.portfolio.domain.CafeMain">
+  		update cafeMain
+  		set cafeAddress=#{cafeAddress}, cafeWifi=#{cafeWifi}, cafeParking=#{cafeParking}, cafeRefill=#{cafeRefill},
+  		cafeTableNum=#{cafeTableNum}, concentTableNum=#{concentTableNum}, cafeLogo=#{cafeLogo}, cafePhoneNum=#{cafePhoneNum},
+  		cafeCommentary=#{cafeCommentary}, cafePassword=#{cafePassword}
+  		where trim(cafeNickname)=#{cafeNickname}
+  	</update>
   </mapper>
