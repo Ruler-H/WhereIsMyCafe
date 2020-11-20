@@ -85,11 +85,10 @@
 			<li>
 				<label for="cafeImage">카페 이미지</label>
 				<input type="file" multiple="multiple" id="cafeImage" class="fileinput" accept="image/*" name="cafeImage"/>
-				<img id="imgs"/>
+				<img id="imgs" src="${pageContext.request.contextPath}/cafe/logo/${cafeinfo.cafeImage}"/>
+				<input type = "hidden" name = "oldCafeImage" value="${cafeinfo.cafeImage}"/>
 			</li>
-			<li>
-				
-			</li>
+			
 			<li>
 				<label for="cafeSurviceElement">카페 서비스 요소</label></br>
 				<input type="checkbox" id="cafeParking" name="cafeParking" class="boxinput"/>주차 가능 여부&emsp;&emsp;
@@ -104,7 +103,7 @@
 			<li>
 				<label for="cafeLogo">카페 로고</label>
 				<input type="file" id="cafeLogo" class="fileinput" accept="image/*" name="cafeLogo"/>
-				<img id="img" src="${pageContext.request.contextPath}/cafe/profile/${cafeinfo.cafeLogo}"/>
+				<img id="img" src="${pageContext.request.contextPath}/cafe/logo/${cafeinfo.cafeLogo}"/>
 				<input type = "hidden" name = "oldCafeLogo" value="${cafeinfo.cafeLogo}"/>
 			</li>
 			

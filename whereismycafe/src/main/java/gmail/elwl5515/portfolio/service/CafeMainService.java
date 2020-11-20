@@ -13,4 +13,7 @@ public interface CafeMainService {
 	
 	//로그인을 처리하는 메소드
 	public Map<String, Object> login(HttpServletRequest request, HttpServletResponse response);
+	
+	//정보 수정을 처리하는 메소드
+	public Map<String, Object> update(MultipartHttpServletRequest request, HttpServletResponse response);
 }

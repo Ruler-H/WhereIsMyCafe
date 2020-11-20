@@ -29,4 +29,10 @@ public class CafeMainDAO {
 	public List<CafeMain> login(){
 		return sqlSession.selectList("cafemain.login");
 	}
+	
+	//정보 수정 처리를 위한 메소드
+	public int update(CafeMain cafeMain) {
+		System.out.println("CafeMainDAO update 메소드 호출 확인");
+		return sqlSession.update("cafemain.update", cafeMain);
+	}
 }

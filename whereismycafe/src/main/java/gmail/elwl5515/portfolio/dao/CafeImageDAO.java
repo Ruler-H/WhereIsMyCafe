@@ -23,4 +23,10 @@ public class CafeImageDAO {
 	public List<CafeImage> login(){
 		return sqlSession.selectList("cafeimage.login");
 	}
+	
+	//정보 수정 처리를 위한 메소드
+	public int update(CafeImage cafeImage) {
+		System.out.println("CafeImageDAO update 메소드 호출");
+		return sqlSession.update("cafeimage.update", cafeImage);
+	}
 }

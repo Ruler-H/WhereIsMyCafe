@@ -265,55 +265,56 @@ public class ClientServiceImpl implements ClientService {
 			System.out.println("ClientServiceImpl의 update 메소드 확인 : 2");
 			//업로드한 파일 이름 랜덤하게 설정
 			image = UUID.randomUUID() + clientProfileImage.getOriginalFilename();
-			//저장할 때 사용할 전체 경로 생성
-			uploadPath = uploadPath + "/" + image;
-			//파일 객체 생성
-			File file = new File(uploadPath);
-			FileOutputStream fos = null;
-			//파일 전송 요청
-			try {
-				fos = new FileOutputStream(file);
-				fos.write(clientProfileImage.getBytes());
-			}catch(Exception e) {
-				System.err.println("프로필 이미지 전송 실패 : " + e.getMessage());
-				e.printStackTrace();
-			}
+			
 		}
-			//파라미터로 받은 데이터를 저장할 client, clientPreferenceElement DTO 객체 생성
-			Client client = new Client();
-			ClientPreferenceElement clientPreferenceElement = new ClientPreferenceElement();
-			String key = "elwl5515";
-			try {
-				System.out.println("ClientServiceImpl의 update 메소드 확인 : 3");
-				// 갱신 요청한 회원 정보 저장
-				client.setClientAddress(clientAddress);
-				client.setClientAge(clientAge);
-				client.setClientEmail(CryptoUtil.encryptAES256(clientEmail, key));
-				client.setClientName(clientName);
-				client.setClientNickname(clientNickname);
-				client.setClientPassword(BCrypt.hashpw(clientPassword, BCrypt.gensalt()));
-				client.setClientPhoneNum(clientPhoneNum);
-				client.setClientProfileImage(image);
-				clientPreferenceElement.setClientNickname(clientNickname);
-				clientPreferenceElement.setPreferConcent(preferConcent);
-				clientPreferenceElement.setPreferNoKidsZone(preferNoKidsZone);
-				clientPreferenceElement.setPreferParking(preferParking);
-				clientPreferenceElement.setPreferPat(preferPat);
-				clientPreferenceElement.setPreferRefill(preferRefill);
-				clientPreferenceElement.setPreferWifi(preferWifi);
-			}catch(Exception e) {
-				System.err.println("파라미터 데이터 저장 실패 : " + e.getMessage());
-				e.printStackTrace();
-			}
-			//clientDAO, clientPreferenceElementDAO의 update 메소드 호출하여 결과 저장
-			int r1 = clientDao.update(client);
-			int r2 = clientPreferenceElementDao.update(clientPreferenceElement);
-			//각 결과를 확인하여 두 결과 모두 성공인 경우에 map의 result value를 true로 저장
-			if(r1 == 1 && r2 == 1) {
-				System.out.println("ClientServiceImpl의 update 메소드 확인 : 4");
-				map.put("result", true);
-			}
+		//저장할 때 사용할 전체 경로 생성
+		uploadPath = uploadPath + "/" + image;
+		//파일 객체 생성
+		File file = new File(uploadPath);
+		FileOutputStream fos = null;
+		//파일 전송 요청
+		try {
+			fos = new FileOutputStream(file);
+			fos.write(clientProfileImage.getBytes());
+		}catch(Exception e) {
+			System.err.println("프로필 이미지 전송 실패 : " + e.getMessage());
+			e.printStackTrace();
+		}
 		
-		return map;
+		//파라미터로 받은 데이터를 저장할 client, clientPreferenceElement DTO 객체 생성
+		Client client = new Client();
+		ClientPreferenceElement clientPreferenceElement = new ClientPreferenceElement();
+		String key = "elwl5515";
+		try {
+			System.out.println("ClientServiceImpl의 update 메소드 확인 : 3");
+			// 갱신 요청한 회원 정보 저장
+			client.setClientAddress(clientAddress);
+			client.setClientAge(clientAge);
+			client.setClientEmail(CryptoUtil.encryptAES256(clientEmail, key));
+			client.setClientName(clientName);
+			client.setClientNickname(clientNickname);
+			client.setClientPassword(BCrypt.hashpw(clientPassword, BCrypt.gensalt()));
+			client.setClientPhoneNum(clientPhoneNum);
+			client.setClientProfileImage(image);
+			clientPreferenceElement.setClientNickname(clientNickname);
+			clientPreferenceElement.setPreferConcent(preferConcent);
+			clientPreferenceElement.setPreferNoKidsZone(preferNoKidsZone);
+			clientPreferenceElement.setPreferParking(preferParking);
+			clientPreferenceElement.setPreferPat(preferPat);
+			clientPreferenceElement.setPreferRefill(preferRefill);
+			clientPreferenceElement.setPreferWifi(preferWifi);
+		}catch(Exception e) {
+			System.err.println("파라미터 데이터 저장 실패 : " + e.getMessage());
+			e.printStackTrace();
+		}
+		//clientDAO, clientPreferenceElementDAO의 update 메소드 호출하여 결과 저장
+		int r1 = clientDao.update(client);
+		int r2 = clientPreferenceElementDao.update(clientPreferenceElement);
+		//각 결과를 확인하여 두 결과 모두 성공인 경우에 map의 result value를 true로 저장
+		if(r1 == 1 && r2 == 1) {
+			System.out.println("ClientServiceImpl의 update 메소드 확인 : 4");
+			map.put("result", true);
+		}
+				return map;
 	}
 }

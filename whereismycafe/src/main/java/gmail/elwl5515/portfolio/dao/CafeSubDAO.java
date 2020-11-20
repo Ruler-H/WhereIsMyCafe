@@ -23,4 +23,10 @@ public class CafeSubDAO {
 	public List<CafeSub> login(){
 		return sqlSession.selectList("cafesub.login");
 	}
+	
+	//정보 수정 처리를 위한 메소드
+	public int update(CafeSub cafeSub){
+		System.out.println("CafeSubDAO update 메소드 호출 확인");
+		return sqlSession.update("cafesub.update", cafeSub);
+	}
 }
