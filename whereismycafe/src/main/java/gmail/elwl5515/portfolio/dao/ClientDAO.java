@@ -27,7 +27,7 @@ public class ClientDAO {
 	
 	//로그인 처리를 위한 메소드
 	public List<Client> login(){
-		return sqlSession.selectList("client.login 메소드 호출 확인");
+		return sqlSession.selectList("client.login");
 	}
 	
 	//정보 수정 처리를 위한 메소드

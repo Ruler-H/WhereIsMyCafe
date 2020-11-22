@@ -30,7 +30,7 @@
 			<artifactId>ojdbc7</artifactId>
 			<version>12.1.0.2</version>
 		</dependency>
-		<!-- Spring으로 JDB를 사용하기 위한 의존성 -->
+		<!-- Spring으로 JDBC를 사용하기 위한 의존성 -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-jdbc</artifactId>
