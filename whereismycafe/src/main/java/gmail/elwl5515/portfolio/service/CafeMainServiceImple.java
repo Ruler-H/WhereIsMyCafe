@@ -299,6 +299,7 @@ public class CafeMainServiceImple implements CafeMainService {
 		return result;
 	}
 
+	//cafe 정보 수정을 위한 메소드
 	@Override
 	@Transactional
 	public Map<String, Object> update(MultipartHttpServletRequest request, HttpServletResponse response) {

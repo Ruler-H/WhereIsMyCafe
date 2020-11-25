@@ -53,6 +53,7 @@ window.addEventListener("load", function(event){
     cafeTableNummsg.style.color = "RED";
     cafeHomepagemsg.style.color = "RED";
     cafeCommentarymsg.style.color = "RED";
+    cafeSNSmsg.style.color = "RED";
 
 	//mainbtn을 눌렀을 때 페이지 이동 처리
 	mainbtn.addEventListener("click", function(event){
