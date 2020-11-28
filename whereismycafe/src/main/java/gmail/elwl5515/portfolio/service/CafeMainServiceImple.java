@@ -243,6 +243,7 @@ public class CafeMainServiceImple implements CafeMainService {
 	@Transactional
 	@Override
 	public Map<String, Object> login(HttpServletRequest request, HttpServletResponse response) {
+		System.out.println("cafe serviceImpl login 메소드 호출 확인 : 1");
 		Map<String, Object> result = new HashMap<String, Object>();
 		result.put("reuslt", false);
 		String cafeNickname = request.getParameter("cafeNickname");
@@ -251,7 +252,8 @@ public class CafeMainServiceImple implements CafeMainService {
 		List<CafeMain> cafeMainList = cafeMainDao.login();
 		List<CafeSub> cafeSubList = cafeSubDao.login();
 		List<CafeImage> cafeImageList = cafeImageDao.login();
-		
+		System.out.println("cafe serviceImpl login 메소드 호출 확인 : 2");
+
 		String key = "elwl5515";
 		try {
 			for(CafeMain cafeMain : cafeMainList) {

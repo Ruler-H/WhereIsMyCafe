@@ -98,7 +98,7 @@ window.addEventListener("load", function(event){
             if(obj.result == true){
                 location.href = "../client/logout";
             }else{
-                msg.innerHTML = "회원 정보 수정에 실패하였습니다."
+                msg.innerHTML = "회원 정보 수정에 실패하였습니다.";
             }
         });
     });

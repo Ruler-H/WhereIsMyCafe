@@ -41,10 +41,10 @@ window.addEventListener("load", function(event){
     var cafePhoneNummsg = document.getElementById("cafePhoneNummsg");
     var cafeTableNummsg = document.getElementById("cafeTableNummsg");
     var cafeHomepagemsg = document.getElementById("cafeHomepagemsg");
-    var cafeSNSmsg = document.getElementById("caeSNSmsg");
+    var cafeSNSmsg = document.getElementById("cafeSNSmsg");
     var cafeCommentarymsg = document.getElementById("cafeCommentarymsg");
 
-    //메시지가 빨강색으로 출력되도록 설정
+	//메시지가 빨강색으로 출력되도록 설정
     cafeAddressmsg.style.color = "RED";
     cafePasswordmsg.style.color = "RED";
     cafeNicknamemsg.style.color = "RED";

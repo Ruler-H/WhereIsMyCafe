@@ -25,7 +25,7 @@
 						</div>
 						<div class = "inp_text">
 							<label for = "cafePassword" class = "screen_out">비밀번호</label>
-							<input type = password" id = "cafePassword" name = "cafePassword" placeholder = "비밀번호를 입력하세요!">
+							<input type = "password" id = "cafePassword" name = "cafePassword" placeholder = "비밀번호를 입력하세요!">
 						</div>
 					</div>
 				</fieldset>

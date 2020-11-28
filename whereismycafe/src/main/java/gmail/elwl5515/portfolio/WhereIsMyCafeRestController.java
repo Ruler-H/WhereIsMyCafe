@@ -85,5 +85,21 @@ public class WhereIsMyCafeRestController {
 		Map<String, Object> map = cafeMainService.join(request, response);
 		return map;
 	}
+	
+	//카페 로그인을 처리하는 메소드
+	@RequestMapping(value = "cafe/login", method = RequestMethod.POST)
+	public Map<String, Object> cafeLogin(HttpServletRequest request, HttpServletResponse response){
+		//서비스의 로그인 메소드 호출
+		Map<String, Object> result = cafeMainService.login(request, response);
+		return result;
+	}
+	
+	//카페 정보 갱신을 처리하는 메소드
+	@RequestMapping(value = "cafe/update", method = RequestMethod.POST)
+	public Map<String, Object> cafeUpdate(MultipartHttpServletRequest request, HttpServletResponse response){
+		//서비스의 카페 정보 갱신 메소드 호출
+		Map<String, Object> result = cafeMainService.update(request, response);
+		return result;
+	}
 
 }
