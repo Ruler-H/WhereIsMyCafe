@@ -27,22 +27,39 @@
 			<div class="content">
 				<div class="inner">
 					<h1>Where Is My Cafe</h1>
-					<p>
-						당신이 원하는 카페 
-					</p>
+					<p>당신이 원하는 카페</p>
+					<c:if test="${clientinfo == null}">
+						<div id="login">
+							<a href="client/join">고객 회원가입</a> <a href="client/login">고객
+								로그인</a> </br> <a href="cafe/join">카페 회원가입</a> <a href="cafe/login">카페
+								로그인</a>
+						</div>
+					</c:if>
+					<c:if test="${clientinfo != null}">
+						<img
+							src="${pageContext.request.contextPath}/client/profile/
+		${clientinfo.clientProfileImage}" />${clientinfo.clientNickname}님
+		<a href="client/logout" class="menu">로그아웃</a>
+						<a href="client/update" class="menu">회원 정보 수정</a>
+					</c:if>
+					<c:if test="${cafeinfo != null}">
+						<img
+							src="${pageContext.request.contextPath}/cafe/profile/${cafeinfo.cefeLogo}" />${cafeinfo.cafeName} 점주님
+		<a href="cafe/logout" class="menu">로그아웃</a>
+						<a href="cafe/update" class="menu">카페 정보 수정</a>
+					</c:if>
 				</div>
 			</div>
 			<nav>
 				<ul>
 					<li><a href="#intro">Intro</a></li>
-					<li><a href="#work">Work</a></li>
+					<li><a href="#work">Search</a></li>
 					<li><a href="#about">About</a></li>
 					<li><a href="#contact">Contact</a></li>
 					<!--<li><a href="#elements">Elements</a></li>-->
 				</ul>
 			</nav>
 		</header>
-
 		<!-- Main -->
 		<div id="main">
 
@@ -52,28 +69,79 @@
 				<span class="image main"><img
 					src="${pageContext.request.contextPath}/images/pic01.jpg" alt="" /></span>
 				<p>
-					Aenean ornare velit lacus, ac varius enim ullamcorper eu. Proin
-					aliquam facilisis ante interdum congue. Integer mollis, nisl amet
-					convallis, porttitor magna ullamcorper, amet egestas mauris. Ut
-					magna finibus nisi nec lacinia. Nam maximus erat id euismod
-					egestas. By the way, check out my <a href="#work">awesome work</a>.
+					지원분야/회사에 지원하는 지원동기는?<br /> [다른 직무로부터 찾은 개발 직무]<br /> &emsp;전 직장에서
+					송무 업무를 맡게 되면서 당시의 업무들이 무언가를 이루어가는 것이 아니라는 것을 느끼면서 다른 직무를 찾기 시작했습니다.
+					여러 직무 중에서도 작은 부분부터 만들어가며 목표를 달성해 나아가는 개발자에 매력을 느껴 관심을 갖게 되었습니다.
+					이전까지는 개발자 업무에는 어떠한 것들이 있는지 알지 못했지만 관심을 갖게 된 이후부터는 어떻게 배워야할 지를 알아보기
+					시작했고, 많은 분야에서 사용되는 Java 언어를 사용하여 WebProgramming 및 앱 개발을 교육받을 수 있는
+					과정을 이수하게 되었습니다. 과정을 이수하며 Spring을 활용한 Java 언어 활용 능력이 있고, Oracle 및
+					My-SQL을 교육 받게 되었습니다. 또한 저는 제가 속한 회사의 목표를 위해서 추가적으로 필요한 개발 언어나 회사의
+					사업에 필요한 업무 지식들을 계속해서 공부해가며 스스로의 성취를 이룰 것입니다. 그리고 이를 바탕으로 회사의 발전을
+					도모하고, 회사를 성장시킬 것입니다. 또한 여기서 멈추는 것이 아니라 성장한 회사에서 다시 저의 성취를 이루고, 회사를
+					성장시키는 지속적인 선순환의 중심이 될 것입니다. 이러한 저의 목표가 당 사 내에서도 긍정적 영향을 미칠 것이라
+					생각합니다.
 				</p>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
-					dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora
-					torquent per conubia nostra, per inceptos himenaeos. Etiam
-					tristique libero eu nibh porttitor fermentum. Nullam venenatis erat
-					id vehicula viverra. Nunc ultrices eros ut ultricies condimentum.
-					Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae
-					dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in
-					lectus. Pellentesque habitant morbi tristique senectus et netus et
-					malesuada fames ac turpis egestas. In non lorem sit amet elit
-					placerat maximus. Pellentesque aliquam maximus risus, vel sed
-					vehicula.</p>
+				<p>
+					지원분야에서 활용할 수 있는 직무 수행 경험은? <br /> [처음 만드는 나의 프로그램 제작]<br />
+					&emsp;프로그래밍 공부를 시작하며, 제가 관심을 갖고 있는 분야를 선정하여 포트폴리오를 만들기 시작했습니다. Java
+					언어를 기반으로 프로젝트를 시작하였고, Eclipse를 통합개발도구로 선정하였습니다. 중간 과정 중 Spring
+					프레임워크로 전환하는 과정도 진행하였고, MySQL기반으로 구축하였던 데이터베이스를 Oracle로 변경하기도 했습니다.
+					이러한 과정 등을 통해서 언어와 각 개발 도구들에 대한 활용 능력을 함양할 수 있었고, 프로젝트의 각 기능들을 구현하기
+					위해 데이터베이스를 구축하고 서버의 DTO, DAO, Service, Controller 등 프로그래밍하면서 프로그램의
+					처리 과정에 대해 더 면밀히 이해할 수 있었습니다. 물론 프로젝트 과정 중에는 많은 어려움이 있었습니다. 하지만
+					포트폴리오는 결과물을 내는 것이 목적 중 하나이지만 결과물을 내는 과정에서 많은 오류 코드를 해결하면서 얻은 프로그래밍
+					능력 또한 이 프로젝트의 목적이기 때문에 이 프로젝트를 통해서 프로그래밍에 필요한 많은 능력들을 갖출 수 있었다고
+					생각합니다. 이 능력들을 통해서 입사한 후에도 많은 역량을 발휘할 것이고, 회사 내의 프로젝트를 통해서도 계속해서
+					프로그래밍 능력을 향상시킬 수 있는 사원이 되도록 하겠습니다.
+				</p>
+
+				<p>
+					입사 후 포부를 제시하고, 그에 따른 노력을 구체적으로 작성하시오.<br /> [오류를 줄이는 개발자]<br />
+					&emsp;저는 개발자의 중요한 역량은 개발 중의 오류를 줄이는 것이라고 생각합니다. 좋은 기능을 개발하는 것도
+					중요하지만 오류가 있다면 좋은 기능의 의미를 상실하는 것이라고 생각하기 때문입니다. 저는 이러한 오류들을 줄이기 위해서
+					첫 번째로 맡은 업무의 도메인 지식에 대해서 집중할 것입니다. 개발자의 프로그래밍 역량도 중요하겠지만 맡은 프로젝트 관련
+					도메인 지식에 대한 이해가 개발하는 프로그래밍의 오류를 줄이기 위한 중요 요소라고 생각하기 때문입니다. 이를 위해
+					프로젝트의 요구사항에 집중하고, 사내 업무 담당자님들과의 지속적인 의사소통을 통하여 추가적인 요구사항이나 세밀한 기능의
+					개발에서도 오류가 발생하지 않도록 하겠습니다. 두 번째로 개발 간의 모든 업무에서 진행 및 수정 등의 진행 상황을 상세히
+					기록하여 같이 프로젝트를 진행하는 개발자님들 간의 커뮤니케이션을 활성화시켜 협업의 효과를 통해 저 뿐만이 아니라 같이
+					프로젝트를 진행하는 팀의 오류 감소에 더하여 프로젝트 진행의 효율성을 높이도록 하겠습니다. 이러한 노력들로 입사 후에는
+					제가 담당해야 할 컨텐츠 관련된 도메인 지식 습득을 위해 노력할 것입니다. 또한 사내로는 기존 개발자님들과 커뮤니케이션을
+					지속적으로 유지하기 위해 노력할 것이고, 개발될 컨텐츠와 관련된 업무 담당자님들에게 피드백을 받아가며 배우려는 자세로
+					일하는 직원이 되겠습니다.
+				</p>
+				<p>
+					어렵거나 힘들었던 문제의 상황을 설명하고 어떠한 과정을 거쳐 해결하였는지 설명하시오.<br /> [문제를 인식하고 해결
+					방법을 찾는 자세]<br /> &emsp;제가 6개월 동안 프로그래밍을 배우면서 이전까지 제가 공부하던 분야와는 많이
+					다름을 느꼈습니다. 그 중 가장 큰 부분은 하나의 오류도 그 것을 알고 모름에 따라 그 코드에 걸리는 노력과 시간은
+					개개인에 따라 천차만별이라는 것입니다. 저는 항상 어떠한 오류를 마주치더라도 포기하지 않고 끝까지 해결하려는 노력을
+					하였고, 일례로는 한가지의 오류로 일주일을 해결하려 노력한 끝에 해결을 한 경험도 있습니다. 다른 사람이 보기에는
+					효율적이지 못한 방법일 수도 있지만, 저는 이러한 프로그래밍에서의 노력을 단순한 효율성의 측면에서 보는 것이 아니라
+					포기하지 않고 오류를 해결함으로써 꾸준히 본인의 프로그래밍 능력을 늘려가는 가며 추후에는 이러한 능력을 기반으로
+					효율성까지 얻게 되는 것이 저의 장점이 될 것이라 생각하고, 이런 저의 자세는 당 사에서도 어떠한 어려운 문제가 있어도
+					포기하지 않는 자세를 갖고 항상 해결 방법을 찾아내는 인재가 되어 문제 상황 속에서도 성공하는 당 사를 만들어
+					가겠습니다.
+				</p>
+				<p>
+					성격의 장/단점을 보여줄 만한 구체적인 사례를 작성하시오.<br /> [많은 경험으로 쌓아온 업무 적응과 고객 요구사항
+					파악 능력]<br /> &emsp;20살부터 10개 이상의 아르바이트와 교내 동아리, 학회의 학회장, 군 내의 간부,
+					교회의 엔지니어팀장 등을 하며 여러 업무에 대한 적응력을 키워왔습니다. 아르바이트에서는 서비스 업무, 동아리에서는 홍보
+					업무, 학회에서는 학회장으로서 전체 총괄의 업무, 군 간부로서는 여러 인원을 관리하고 통솔하는 업무, 교회 팀장으로서는
+					팀원들의 능력 향상을 포함하여 팀의 사역을 책임지는 일을 맡아왔습니다. 단순히 한 업무에 탁월한 능력보다는 어느 업무를
+					맡더라도 배우려는 자세와 이전의 경험들을 통해 빠른 업무 적응을 할 수 있게 되었고, 이러한 저의 장점은 입사 후에도
+					어떤 업무라도 빠른 업무 적응력을 통해 효율적인 인재가 될 것입니다. 또한 앞서 말씀을 드린 10개 이상의 아르바이트는
+					모두 서비스와 관련된 업무로서, 많은 고객들을 상대하며 고객 요구사항에 대한 파악 능력을 함양할 수 있었고, 이는 컨텐츠
+					사용자의 요구 사항을 빠르게 확인하여 그 요구사항을 서비스로 구현해내는 개발 직무에서 큰 도움이 될 거라고 생각합니다.
+					<br />[암기력을 보충하기 위한 반복 체크의 습관]<br /> &emsp;저는 대학을 법학을 전공하여 다른
+					학과보다도 암기력이 중요했습니다. 하지만 저의 암기력은 다른 학우들과 비교될 정도로 좋지 못했고, 항상 저의 기억력을
+					보완하기 위해 반복하여 다시 확인하는 습관을 갖게 되었습니다. 이 습관은 단순히 공부에서만이 아니라 어느 업무와 직무를
+					맡게 되어도 그 업무에 영향을 미쳐 왔습니다. 특히, 컨텐츠에서 어떤 서비스를 구현해야 하는지 명확히 해야 하는 개발
+					업무에서는 저의 이러한 습관이 프로젝트의 목표를 향해 나아가는 과정에서 많은 이점을 가져올 것입니다.
+				</p>
 			</article>
 
 			<!-- Work -->
 			<article id="work">
-				<h2 class="major">Work</h2>
+				<h2 class="major">Search</h2>
 				<span class="image main"><img
 					src="${pageContext.request.contextPath}/images/pic02.jpg" alt="" /></span>
 				<p>Adipiscing magna sed dolor elit. Praesent eleifend dignissim
@@ -421,24 +489,6 @@ print 'It took ' + i + ' iterations to sort the deck.';</code>
 	<script src="assets/js/main.js"></script>
 
 
-	<c:if test="${clientinfo == null}">
-		<div id="login">
-			<a href="client/join">고객 회원가입</a> <a href="client/login">고객 로그인</a> </br>
-			<a href="cafe/join">카페 회원가입</a> <a href="cafe/login">카페 로그인</a>
-		</div>
-	</c:if>
-	<c:if test="${clientinfo != null}">
-		<img
-			src="${pageContext.request.contextPath}/client/profile/
-		${clientinfo.clientProfileImage}" />${clientinfo.clientNickname}님
-		<a href="client/logout" class="menu">로그아웃</a>
-		<a href="client/update" class="menu">회원 정보 수정</a>
-	</c:if>
-	<c:if test="${cafeinfo != null}">
-		<img
-			src="${pageContext.request.contextPath}/cafe/profile/${cafeinfo.cefeLogo}" />${cafeinfo.cafeName} 점주님
-		<a href="cafe/logout" class="menu">로그아웃</a>
-		<a href="cafe/update" class="menu">카페 정보 수정</a>
-	</c:if>
+
 </body>
 </html>
