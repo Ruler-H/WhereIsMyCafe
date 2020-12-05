@@ -8,8 +8,7 @@
 <link rel="shortcut icon" href="#">
 <meta charset="UTF-8">
 <title>WhereIsMyCafe</title>
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, user-calable=no" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-calable=no" />
 <link rel="stylesheet" href="assets/css/main.css" />
 <noscript>
 	<link resl="stylesheet" href="assets/css/noscript" />
@@ -30,22 +29,20 @@
 					<p>당신이 원하는 카페</p>
 					<c:if test="${clientinfo == null}">
 						<div id="login">
-							<a href="client/join">고객 회원가입</a> <a href="client/login">고객
-								로그인</a> </br> <a href="cafe/join">카페 회원가입</a> <a href="cafe/login">카페
-								로그인</a>
+							<a href="client/join">고객 회원가입</a>&emsp; 
+							<a href="client/login">고객 로그인</a></br>
+							<a href="cafe/join">카페 회원가입</a>&emsp;
+							<a href="cafe/login"> 카페 로그인</a>
 						</div>
 					</c:if>
 					<c:if test="${clientinfo != null}">
-						<img
-							src="${pageContext.request.contextPath}/client/profile/
-		${clientinfo.clientProfileImage}" />${clientinfo.clientNickname}님
-		<a href="client/logout" class="menu">로그아웃</a>
+						<img src="${pageContext.request.contextPath}/client/profile/${clientinfo.clientProfileImage}"/>${clientinfo.clientNickname}님</br>
+						<a href="client/logout" class="menu">로그아웃</a>&emsp;
 						<a href="client/update" class="menu">회원 정보 수정</a>
 					</c:if>
 					<c:if test="${cafeinfo != null}">
-						<img
-							src="${pageContext.request.contextPath}/cafe/profile/${cafeinfo.cefeLogo}" />${cafeinfo.cafeName} 점주님
-		<a href="cafe/logout" class="menu">로그아웃</a>
+						<img src="${pageContext.request.contextPath}/cafe/profile/${cafeinfo.cefeLogo}" />${cafeinfo.cafeName} 점주님</br>
+						<a href="cafe/logout" class="menu">로그아웃</a>&emsp;
 						<a href="cafe/update" class="menu">카페 정보 수정</a>
 					</c:if>
 				</div>
