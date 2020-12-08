@@ -144,8 +144,7 @@ window.addEventListener("load", function(event){
     var homepageRefExp = /(http(s)?:\/\/)([a-z0-9\w]+\.*)+[a-z0-9]{2,4}/;
     cafeHomepage.addEventListener("focusout", function(event){
         cafeHomepagemsg.innerHTML = '';
-        if(cafeHomepage.value.trim().length < 1){
-        }else if(!homepageRefExp.test(cafeHomepage.value.trim())){
+        if(!homepageRefExp.test(cafeHomepage.value.trim())){
             cafeHomepagemsg.innerHTML = '홈페이지의 형식이 잘못되었습니다.<br/>';
         }
     });
