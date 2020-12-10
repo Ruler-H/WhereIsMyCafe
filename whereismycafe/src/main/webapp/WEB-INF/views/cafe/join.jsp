@@ -14,6 +14,21 @@
 <noscript>
 	<link resl="stylesheet" href="${pageContext.request.contextPath}/assets/css/noscript" />
 </noscript>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.0.min.js" ></script>
+<script type="text/javascript">
+$(function(){
+    //여기부터
+    $("#cafeImage").change(function(){
+    	imageList = $("#cafeImage")[0].files;
+    	imageListTag = '';
+    	for(i = 0; i < imageList.length; i = i + 1){
+    		imageListTag += "<li>" + imageList[i].name + "</li>";
+    	}
+    	$('#imageList').html(imageListTag);
+    });
+    //여기까지
+});
+</script>
 </head>
 <body class="is-preload">
 	<!-- Wrapper -->
@@ -25,7 +40,7 @@
 				<span class="icon fa-gem"></span>
 			</div>
 			<div class="content">
-				<form id="joinform" enctype="multipart/form-data"><br/>
+				<form method = "post" id="joinform" action="upload-multiple.php" enctype="multipart/form-data"><br/>
 					<h1>회원가입</h1>
 					<div align="center" id="msg"></div>
 						<label for="cafeNickname">카페 닉네임</label> <input type="text"
@@ -76,9 +91,10 @@
 						<label for="cafeLogo">카페 로고</label> <input type="file"
 							id="cafeLogo" class="fileinput" accept="image/*" name="cafeLogo" />
 							<img id="img" /><br/><br/>
-						<label for="cafeImage">카페 이미지</label> <input type="file"
-							multiple="multiple" id="cafeImage" class="fileinput"
-							accept="image/*" name="cafeImage" /> <br/><br/>
+						<label for="cafeImage">카페 이미지</label> 
+						<input type="file" id="cafeImage" class="fileinput" accept="image/*" name="cafeImage[]" multiple />
+						<ul id="imageList"></ul>
+						<img id="imgs"><br/>
 						<label for="cafeSurviceElement">카페 서비스 요소</label> 
 						<input type="checkbox" id="cafeParking" name="cafeParking" class="boxinput" />주차가능 여부<br/>
 						<input type="checkbox" id="cafeRefill" name="cafeRefill" class="boxinput" />리필 가능 여부 <br/>
