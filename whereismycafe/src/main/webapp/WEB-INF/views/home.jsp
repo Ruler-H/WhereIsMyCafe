@@ -50,7 +50,7 @@
 			<nav>
 				<ul>
 					<li><a href="#intro">Intro</a></li>
-					<li><a href="#work">Search</a></li>
+					<li><a href="cafe/search">Search</a></li>
 					<li><a href="#about">About</a></li>
 					<li><a href="#contact">Contact</a></li>
 					<!--<li><a href="#elements">Elements</a></li>-->

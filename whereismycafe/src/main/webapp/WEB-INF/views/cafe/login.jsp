@@ -44,7 +44,7 @@
 				<a href = "#" class = "link_find">아이디 찾기</a>
 				<a href = "#" class = "link_find">비밀번호 찾기</a>
 				<a href = "join" class = "link_find">회원가입</a>
-				<a href = "../index.html" class = "link_find">메인으로</a>
+				<a href = "../" class = "link_find">메인으로</a>
 			</div>
 		</div>
 	</div>

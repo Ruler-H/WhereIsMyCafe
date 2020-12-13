@@ -57,7 +57,7 @@ public class CafeMainServiceImple implements CafeMainService {
 		String cafeSNS = request.getParameter("cafeSNS");
 		String cafeCommentary = request.getParameter("cafeCommentary");
 		MultipartFile cafeLogo = request.getFile("cafeLogo");
-		List<MultipartFile> imageList = request.getFiles("cafeImage");
+		List<MultipartFile> imageList = request.getFiles("cafeImage[]");
 		String cafeParking = request.getParameter("cafeParking");
 		String cafeRefill = request.getParameter("cafeRefill");
 		String cafeCoupon = request.getParameter("cafeCoupon");
@@ -152,7 +152,7 @@ public class CafeMainServiceImple implements CafeMainService {
 			
 			//카페 이미지 파일의 기본 이름 설정
 			String imageName = "default.jpg";
-			Boolean flag = true;
+			boolean flag = true;
 			for(MultipartFile image : imageList) {
 				System.out.println("CafeMainService join 메소드 호출 4");
 				//저장할 디렉토리 경로 생성
