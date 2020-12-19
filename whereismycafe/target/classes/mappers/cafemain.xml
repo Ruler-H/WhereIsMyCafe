@@ -32,4 +32,10 @@
   		cafeCommentary=#{cafeCommentary}, cafePassword=#{cafePassword}
   		where trim(cafeNickname)=#{cafeNickname}
   	</update>
+  	
+  	<!-- cafe 목록 반환을 위한 SQL -->
+  	<select id = "cafelist" resultType = "gmail.elwl5515.portfolio.domain.CafeMain">
+  		select *
+  		from cafeMain
+  	</select>
   </mapper>

@@ -16,4 +16,7 @@ public interface CafeMainService {
 	
 	//정보 수정을 처리하는 메소드
 	public Map<String, Object> update(MultipartHttpServletRequest request, HttpServletResponse response);
+	
+	//카페리스트를 반환할 메소드
+	public Map<String, Object> cafeList(HttpServletRequest request, HttpServletResponse response);
 }

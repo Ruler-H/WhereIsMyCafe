@@ -23,7 +23,8 @@
 			<div class="logo">
 				<span class="icon fa-gem"></span>
 			</div>
-			
+			<label for="cafeNickname">카페 닉네임</label>
+			<input type="text" id="cafeNickname" name="cafeNickname" class="textinput" placeholder="닉네임을 입력하세요" />
 		</header>
 		
 

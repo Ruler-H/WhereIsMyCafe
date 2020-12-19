@@ -35,4 +35,10 @@ public class CafeMainDAO {
 		System.out.println("CafeMainDAO update 메소드 호출 확인");
 		return sqlSession.update("cafemain.update", cafeMain);
 	}
+	
+	//카페 리스트를 반환을 위한 메소드
+	public List<CafeMain> cafeList(){
+		return sqlSession.selectList("cafemain.cafelist");
+				
+	}
 }
