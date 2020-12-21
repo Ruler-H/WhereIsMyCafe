@@ -13,6 +13,8 @@
 <noscript>
 	<link resl="stylesheet" href="assets/css/noscript" />
 </noscript>
+<script src="${pageContext.request.contextPath}/cafe/js/search.js"></script>
+<style>tab1{padding-left: 1.8em}</style>
 </head>
 <body class="is-preload">
 	<!-- Wrapper -->
@@ -23,9 +25,29 @@
 			<div class="logo">
 				<span class="icon fa-gem"></span>
 			</div>
-			<label for="cafeNickname">카페 닉네임</label>
-			<input type="text" id="cafeNickname" name="cafeNickname" class="textinput" placeholder="닉네임을 입력하세요" />
+			<div class="list">
+				<tr>
+					<th>카페 이름</th>
+					<th><tab1>주소</tab1></th>
+					<th><tab1>전화번호</tab1></th><br/>
+				</tr>
+				<c:choose>
+					<c:when test = "${empty cafeinfo}">
+						<tr><td>카페 정보가 없습니다.</td></tr><br/>
+					</c:when>
+					<c:when test = "${!empty cafeinfo}">
+						<c:forEach var="list" items="${cafeinfo}">
+							<tr>
+								<td><c:out value="${cafeinfo.cafeName}"/></td>
+								<td><tab1><c:out value="${cafeinfo.cafeAddress}"/></tab1></td>
+								<td><tab1><c:out value="${cafeinfo.cafePhoneNum}"/></tab1></td><br/>
+							</tr>
+						</c:forEach>
+					</c:when>
+				</c:choose>
+			</div>
 		</header>
+		
 		
 
 		<!-- Footer -->
@@ -36,6 +58,7 @@
 		</footer>
 
 	</div>
+	
 
 	<!-- BG -->
 	<div id="bg"></div>

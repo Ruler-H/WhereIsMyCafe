@@ -62,7 +62,7 @@ public class WhereIsMyCafePageController {
 	
 	//cafe의 검색 페이지 이동을 위한 메소드
 	@RequestMapping(value = "cafe/search", method = RequestMethod.GET)
-	public String cafeSpdate() {
+	public String cafeSearch() {
 		return "cafe/search";
 	}
 }

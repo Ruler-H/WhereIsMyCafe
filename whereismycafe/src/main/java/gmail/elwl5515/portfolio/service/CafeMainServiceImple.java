@@ -488,6 +488,7 @@ public class CafeMainServiceImple implements CafeMainService {
 	//카페 리스트를 DB에서 받아서 반환해줄 메소드
 	@Override
 	public Map<String, Object> cafeList(HttpServletRequest request, HttpServletResponse response) {
+		System.out.println("cafe serviceImpl cafeList 메소드 호출 확인 : 1");
 		//카페 정보를 담을 Map 변수 생성
 		Map<String, Object> result = new HashMap<String, Object>();
 		//cafeMainDao에서 cafeList 메소드를 실행해서 cafeMainList 변수에 저장
@@ -513,6 +514,7 @@ public class CafeMainServiceImple implements CafeMainService {
 			e.printStackTrace();
 		}
 		request.getSession().setAttribute("cafeinfo", result);
+		System.out.println("받아온 cafe list : " + result);
 		return result;
 	}
 }

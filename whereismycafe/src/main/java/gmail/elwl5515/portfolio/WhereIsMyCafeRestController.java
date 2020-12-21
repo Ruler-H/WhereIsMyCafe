@@ -101,5 +101,14 @@ public class WhereIsMyCafeRestController {
 		Map<String, Object> result = cafeMainService.update(request, response);
 		return result;
 	}
+	
+	//카페 리스트를 출력을 위한 메소드
+	@RequestMapping(value = "cafe/list", method = RequestMethod.POST)
+	public Map<String, Object> cafeList(HttpServletRequest request, HttpServletResponse response){
+		//서비스의 리스트 출력 메소드 호출
+		System.out.println("RestController cafe list 메소드 호출 확인");
+		Map<String, Object> result = cafeMainService.cafeList(request, response);
+		return result;
+	}
 
 }
