@@ -2,6 +2,7 @@ package gmail.elwl5515.portfolio.service;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -487,27 +488,20 @@ public class CafeMainServiceImple implements CafeMainService {
 
 	//카페 리스트를 DB에서 받아서 반환해줄 메소드
 	@Override
-	public Map<String, Object> cafeList(HttpServletRequest request, HttpServletResponse response) {
-		System.out.println("cafe serviceImpl cafeList 메소드 호출 확인 : 1");
+	public List<CafeMain> list() throws Exception {
+		System.out.println("cafe serviceImpl list 메소드 호출 확인 : 1");
+		/*
 		//카페 정보를 담을 Map 변수 생성
-		Map<String, Object> result = new HashMap<String, Object>();
+		ArrayList<CafeMain> result = new ArrayList<CafeMain>();
 		//cafeMainDao에서 cafeList 메소드를 실행해서 cafeMainList 변수에 저장
 		List<CafeMain> cafeMainList = cafeMainDao.cafeList();
 		//데이터베이스에 접근하는 과정이므로 try~catch 구문 사용
 		try {
 			//cafeMainList를 순차적으로 접근하며 result에 저장
 			for(CafeMain cafeMain : cafeMainList) {
-				result.put("result", true);
-				result.put("cafeName", cafeMain.getCafeName());
-				result.put("cafeAddress", cafeMain.getCafeAddress());
-				result.put("signatureDrink", cafeMain.getSignatureDrink());
-				result.put("signatureDesert", cafeMain.getSignatureDesert());
-				result.put("cafeWifi", cafeMain.getCafeWifi());
-				result.put("cafeTableNum", cafeMain.getCafeTableNum());
-				result.put("concentTableNum", cafeMain.getConcentTableNum());
-				result.put("cafeLogo", cafeMain.getCafeLogo());
-				result.put("cafePhoneNum", cafeMain.getCafePhoneNum());
-				result.put("cafeCommentary", cafeMain.getCafeCommentary());
+				result.add(cafeMain);
+				
+				return result;
 			}
 		}catch(Exception e) {
 			System.err.println("카페 리스트 호출 실패 : " + e.getMessage());
@@ -515,6 +509,8 @@ public class CafeMainServiceImple implements CafeMainService {
 		}
 		request.getSession().setAttribute("cafeinfo", result);
 		System.out.println("받아온 cafe list : " + result);
-		return result;
+		return null;
+		*/
+		return cafeMainDao.list();
 	}
 }

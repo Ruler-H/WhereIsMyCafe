@@ -2,13 +2,21 @@ package gmail.elwl5515.portfolio;
 
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import gmail.elwl5515.portfolio.service.CafeMainService;
 
 //웹 페이지 이동에만 사용되는 컨트롤러
 @Controller
 public class WhereIsMyCafePageController {
+	
+	@Autowired
+	private CafeMainService cafeMainService;
+	
 	//client의 join 페이지 이동을 위한 메소드
 	@RequestMapping(value = "client/join", method = RequestMethod.GET)
 	public String join() {
@@ -62,7 +70,9 @@ public class WhereIsMyCafePageController {
 	
 	//cafe의 검색 페이지 이동을 위한 메소드
 	@RequestMapping(value = "cafe/search", method = RequestMethod.GET)
-	public String cafeSearch() {
+	public String cafeSearch(Model model) throws Exception{
+		//서비스의 리스트 출력 메소드 호출
+		model.addAttribute("cafeinfo", cafeMainService.list());
 		return "cafe/search";
 	}
 }

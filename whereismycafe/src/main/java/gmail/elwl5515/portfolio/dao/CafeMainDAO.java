@@ -37,8 +37,8 @@ public class CafeMainDAO {
 	}
 	
 	//카페 리스트를 반환을 위한 메소드
-	public List<CafeMain> cafeList(){
-		return sqlSession.selectList("cafemain.cafelist");
-				
-	}
+	public List<CafeMain> list() throws Exception{
+		System.out.println("CafeMainDAO list 메소드 호출 확인");
+		return sqlSession.selectList("cafemain.list");
+	};
 }

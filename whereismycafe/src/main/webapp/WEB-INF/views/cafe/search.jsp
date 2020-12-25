@@ -38,9 +38,9 @@
 					<c:when test = "${!empty cafeinfo}">
 						<c:forEach var="list" items="${cafeinfo}">
 							<tr>
-								<td><c:out value="${cafeinfo.cafeName}"/></td>
-								<td><tab1><c:out value="${cafeinfo.cafeAddress}"/></tab1></td>
-								<td><tab1><c:out value="${cafeinfo.cafePhoneNum}"/></tab1></td><br/>
+								<td><c:out value="${list.cafeName}"/></td>
+								<td><tab1><c:out value="${list.cafeAddress}"/></tab1></td>
+								<td><tab1><c:out value="${list.cafePhoneNum}"/></tab1></td><br/>
 							</tr>
 						</c:forEach>
 					</c:when>

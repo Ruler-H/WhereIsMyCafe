@@ -1,5 +1,7 @@
 package gmail.elwl5515.portfolio;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -7,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,6 +26,7 @@ import gmail.elwl5515.portfolio.service.ClientService;
 import gmail.elwl5515.portfolio.service.CouponService;
 import gmail.elwl5515.portfolio.service.DesertService;
 import gmail.elwl5515.portfolio.service.DrinkService;
+import gmail.elwl5515.portfolio.domain.CafeMain;
 
 //데이터를 제공하기 위한 Controller
 @RestController
@@ -99,15 +103,6 @@ public class WhereIsMyCafeRestController {
 	public Map<String, Object> cafeUpdate(MultipartHttpServletRequest request, HttpServletResponse response){
 		//서비스의 카페 정보 갱신 메소드 호출
 		Map<String, Object> result = cafeMainService.update(request, response);
-		return result;
-	}
-	
-	//카페 리스트를 출력을 위한 메소드
-	@RequestMapping(value = "cafe/list", method = RequestMethod.POST)
-	public Map<String, Object> cafeList(HttpServletRequest request, HttpServletResponse response){
-		//서비스의 리스트 출력 메소드 호출
-		System.out.println("RestController cafe list 메소드 호출 확인");
-		Map<String, Object> result = cafeMainService.cafeList(request, response);
 		return result;
 	}
 

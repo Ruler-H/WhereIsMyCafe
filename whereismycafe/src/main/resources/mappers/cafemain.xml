@@ -34,8 +34,9 @@
   	</update>
   	
   	<!-- cafe 목록 반환을 위한 SQL -->
-  	<select id = "cafelist" resultType = "gmail.elwl5515.portfolio.domain.CafeMain">
+  	<select id = "list" resultType = "gmail.elwl5515.portfolio.domain.CafeMain">
   		select *
-  		from cafeMain
+		from cafeMain
+		order by cafeName DESC
   	</select>
   </mapper>
